@@ -1,4 +1,4 @@
-![alt text](Logo_datawave.jpg)
+![alt text](Imagenes/Logo_datawave.jpg)
 
 # Proyecto grupal
 ## YELP & GOOGLE MAPS - REVIEWS AND RECOMMENDATIONS
@@ -9,7 +9,7 @@
 - [Objetivos del proyecto](#objetivos-del-proyecto)
 - [Alcance](#alcance)
 - [Motivos para la elección del alcance del proyecto](#motivos-para-la-elección-del-alcance-del-proyecto)
-- [Pipeline final optimizado para Google Cloud Platform (GCP)](#pipeline-final-optimizado-para-google-cloud-platform-gcp)
+- [Pipeline END to END](#pipeline-end-to-end)
 - [Tecnologías y herramientas utilizadas](#tecnologías-y-herramientas-utilizadas)
 
 ## Descripción del Proyecto – *Localización Óptima y Análisis de Éxito Gastronómico*
@@ -44,9 +44,7 @@ Utilizando datasets de **Google Maps** y **Yelp**, realizamos:
 
 ## Presentación del equipo
 
-![alt text](Datawave_grupo.jpg)
-
-_(Contenido pendiente de agregar)_
+![alt text](Imagenes/Datawave_grupo.jpg)
 
 ## Objetivos del proyecto
 
@@ -74,7 +72,7 @@ En una segunda etapa, ya contemplada en la planificación futura del proyecto, s
 6. **Optimización de recursos técnicos:** Al limitar el análisis inicial a un estado y un rubro específico, se permite una investigación más profunda y detallada, maximizando la calidad de los insights sin dispersar los recursos del equipo.
 7. **Mayor claridad para la toma de decisiones:** Un alcance acotado ayuda a mantener el foco en objetivos concretos, facilitando la toma de decisiones informadas y medibles en el corto plazo.
 
-## PIPELINE END to END
+## Pipeline END to END
 
 ### Resumen del flujo de datos optimizado
 
