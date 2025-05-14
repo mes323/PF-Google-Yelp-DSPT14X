@@ -1,3 +1,5 @@
+![alt text](Logo_datawave.jpg)
+
 # Proyecto grupal
 ## YELP & GOOGLE MAPS - REVIEWS AND RECOMMENDATIONS
 
@@ -41,6 +43,8 @@ Utilizando datasets de **Google Maps** y **Yelp**, realizamos:
 - ✅ **Recomendación personalizada:** del tipo de restaurante más prometedor, alineado con preferencias del mercado.
 
 ## Presentación del equipo
+
+![alt text](Datawave_grupo.jpg)
 
 _(Contenido pendiente de agregar)_
 
