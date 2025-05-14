@@ -150,3 +150,68 @@ En una segunda etapa, ya contemplada en la planificación futura del proyecto, s
 | BigQuery                  | Data Warehouse         | Consulta rápida sobre grandes volúmenes, con modelo estructurado                     |
 | Vertex AI / ML Model      | Machine Learning       | Entrenamiento, validación y despliegue de modelos                                     |
 | Power BI                  | Visualización          | Dashboards interactivos conectados directamente a BigQuery                           |
+
+
+
+README ML
+
+En esta etapa ya tenemos datos limpios y un EDA profundo que explica las variables al estado más denso. El siguiente README es un borrador donde se explica el esquema principal de la creación del Modelo de Machine Learning.
+
+Usaremos de la Metodologia CRISP-DM
+
+1. Comprensión del negocio-
+
+    1.1 Objetivo- Aumentar la probabilidad de exito de un restaurante en el estado mas denso de USA. 
+    
+    1.2 Evaluación situación actual-El mercado gastronomico en USA es vasto con mucha variedad y competencia. Como contexto explicamos datos generales como tamaño de la industria gastronómica, crecimientos, competidores, numero de cierres y aperturas anuales. 
+
+    1.3 Estado del arte- Hablaremos de la Ley de la Demanda, ciclos del producto (categoria), mapa de posicionamiento. 
+
+    1.4 Matriz DOFA para encontrar oportunidades valiosas para nuestro inversor.
+
+
+
+2. Comprensión de los datos-
+
+    2.1 Categorización de los datos- variables cualitativas nominales u ordinales, variables cuantitativas discretas o continuas y variables de texto no estructurado. Datos estadísticos descriptivos- media, varianza, moda, distribuciones. 
+
+    2.2 Heatmap- para saber la correlación entre las variables. 
+    
+    2.3 Verificar calidad de datos.
+
+
+
+3. Preparación de los datos-
+
+    3.1 Limpieza final de datos- De acuerdo al punto anterior, ¿que variables son relevantes para encontrar una mayor probabilidad de éxito con el nuevo restaurante? Este punto implica borrar variables que no tienen ningun objetivo- postal code por ejemplo.
+
+
+    3.2 Creacion de nuevas variables- Estas opciones dependen de nuestros datos. 
+        3.2.1 La variable categórica de sentimiento de acuerdo a los "reviews"- positivo, neutral o negativo. 
+        3.2.2 La variable de clustering de acuerdo al sentimiento y variables económicas. Segmentación del mercado.
+        3.2.3 Variable- proximidad
+
+
+    
+4. Modelado-
+
+    4.1 Selección final de las variables y su tratamiento diferencial. Por ejemplo, las variable de texto no estructurado requieren de un tratamiento previo que las variables numéricas continuas 
+
+    4.2 Aplicar técnicas de modelado- para encontrar patrones. clasificación, regresión, clustering entre ellas y usar diferentes tipos de variables.
+
+    4.3 Vectorización final de todas las variables en una sola matriz.
+
+    4.4 Comparación modelos
+
+
+5. Evaluación-
+
+    5.1 Evaluar si el modelo cumple con los objetivos del proyecto y puede responder los KPI´s.
+
+    5.2 Interpretación de los resultados.
+
+
+6. Deployment-
+
+    6.1 Subida a Google Cloud.
+   
