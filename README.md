@@ -39,6 +39,31 @@ Mediante el uso de datasets provenientes de **Google Places** y **Yelp**, realiz
 ### Beneficios para el Cliente
 
 ✅ **Ubicación estratégica** seleccionada con base en datos reales de población.
+
 ✅ **Reducción de riesgo** mediante decisiones fundamentadas en datos de comportamiento y opinión del consumidor.
+
 ✅ **Recomendación personalizada** del tipo de restaurante más prometedor, alineado con preferencias del mercado.
+
+## Presentación del equipo.
+
+
+
+## Objetivos del proyecto.
+
+- Predecir cuáles serán los rubros de negocios que más crecerán o decaerán en el mercado.
+
+- Identificar las mejores ubicaciones para nuevos locales basándose en la densidad poblacional y la demanda de usuarios.
+
+- Implementar un sistema de recomendación personalizado para cliente que permita seleccionar una ubicación y a partir de esta seleccionar el rubro de restaurantes con mayor probabilidad de éxito.
+
+- Generar herramientas de visualización que presenten los hallazgos de manera clara y accionable para el cliente.
+
+- Desarrollar un sistema que actualice la información en tiempo real, permitiendo que las reseñas de Census, Yelp y Google Maps se integren automáticamente en los análisis.
+
+## Alcance.
+El presente proyecto contempla, en su fase inicial, la recolección, limpieza y análisis de datos demográficos y comerciales con el objetivo de identificar el estado de mayor potencial para la apertura de un primer local gastronómico. Esta selección se basará en indicadores como la densidad poblacional, características socioeconómicas y preferencias de consumo. De forma complementaria, se analizarán reseñas y puntuaciones de restaurantes a nivel nacional para determinar la categoría gastronómica con mayores probabilidades de éxito, utilizando técnicas de análisis de sentimientos y minería de texto.
+
+Esta primera implementación funcionará como prueba piloto, permitiendo validar hipótesis comerciales y operativas en un entorno real.
+
+En una segunda etapa, ya contemplada en la planificación futura del proyecto, se prevé el desarrollo e implementación de un sistema de recomendación basado en aprendizaje automático. Este modelo permitirá escalar la estrategia de expansión, identificando nuevas ubicaciones óptimas para la instalación de sucursales en otros estados del país, en función de patrones demográficos, comportamientos de consumo y desempeño del local inicial.
 
