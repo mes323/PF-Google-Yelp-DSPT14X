@@ -10,6 +10,8 @@
 - [Motivos para la elección del alcance del proyecto](#motivos-para-la-elección-del-alcance-del-proyecto)
 - [Pipeline END to END](#pipeline-end-to-end)
 - [Tecnologías y herramientas utilizadas](#tecnologías-y-herramientas-utilizadas)
+- [Key Performance Indicators (KPI)](#key-performance-indicators-(kpi))
+- [Metodología de Trabajo: SCRUM](#metodología-de-trabajo:-scrum)
 
 ## Descripción del Proyecto – *Localización Óptima y Análisis de Éxito Gastronómico*
 
@@ -152,65 +154,110 @@ En una segunda etapa, ya contemplada en la planificación futura del proyecto, s
 
 
 
-README ML
+## Key Performance Indicators (KPI)
 
-En esta etapa ya tenemos datos limpios y un EDA profundo que explica las variables al estado más denso. El siguiente README es un borrador donde se explica el esquema principal de la creación del Modelo de Machine Learning.
+A continuación se describen los KPIs clave definidos para evaluar tendencias, oportunidades de mercado y efectividad del modelo en el proyecto.
 
-Usaremos de la Metodologia CRISP-DM
+---
 
-1. Comprensión del negocio-
+### KPI 1: Índice de Potencial Demográfico por Estado
 
-    1.1 Objetivo- Aumentar la probabilidad de exito de un restaurante en el estado mas denso de USA. 
-    
-    1.2 Evaluación situación actual-El mercado gastronomico en USA es vasto con mucha variedad y competencia. Como contexto explicamos datos generales como tamaño de la industria gastronómica, crecimientos, competidores, numero de cierres y aperturas anuales. 
+**Objetivo:** Priorizar geográficamente los estados con mayor atractivo para instalar un local gastronómico, considerando densidad poblacional y condiciones socioeconómicas.
 
-    1.3 Estado del arte- Hablaremos de la Ley de la Demanda, ciclos del producto (categoria), mapa de posicionamiento. 
+**Fórmula sugerida (ponderada):**
+```
+Índice = (Densidad poblacional normalizada × 0.5) +
+         (Ingreso promedio normalizado × 0.3) +
+         (Porcentaje de educación superior × 0.2)
+```
 
-    1.4 Matriz DOFA para encontrar oportunidades valiosas para nuestro inversor.
+**Periodicidad:** Evaluación puntual anual o semestral.
 
+**Interpretación:** Un valor más alto indica mayor potencial de éxito para nuevos negocios en ese estado.
 
+---
 
-2. Comprensión de los datos-
+### KPI 2: Satisfacción del Cliente en Relación a Reseñas
 
-    2.1 Categorización de los datos- variables cualitativas nominales u ordinales, variables cuantitativas discretas o continuas y variables de texto no estructurado. Datos estadísticos descriptivos- media, varianza, moda, distribuciones. 
+**Objetivo:** Identificar estados con alto volumen de reseñas pero bajo rating promedio, lo que puede indicar oportunidades para mejorar la oferta gastronómica.
 
-    2.2 Heatmap- para saber la correlación entre las variables. 
-    
-    2.3 Verificar calidad de datos.
+**Fórmula sugerida:**
+```
+Índice de insatisfacción = log10(N° de reseñas + 1) × (5 - Rating promedio)
+```
+**Ejemplo**
 
+| Estado     | N° Reseñas | Rating Promedio | Índice |
+|------------|------------|------------------|--------|
+| Texas      | 120,000    | 3.2              | 2.3    |
+| Florida    | 80,000     | 4.1              | 1.0    |
 
+**Interpretación:** Estados con mayor índice presentan mayor concurrencia y menor satisfacción → alto potencial de inversión.
 
-3. Preparación de los datos-
+---
 
-    3.1 Limpieza final de datos- De acuerdo al punto anterior, ¿que variables son relevantes para encontrar una mayor probabilidad de éxito con el nuevo restaurante? Este punto implica borrar variables que no tienen ningun objetivo- postal code por ejemplo.
+### KPI 3: Tendencia de Crecimiento en Subcategorías
 
+**Objetivo:** Detectar subcategorías gastronómicas que presentan un crecimiento en la densidad de reseñas entre trimestres consecutivos.
 
-    3.2 Creacion de nuevas variables- Estas opciones dependen de nuestros datos. 
-        3.2.1 La variable categórica de sentimiento de acuerdo a los "reviews"- positivo, neutral o negativo. 
-        3.2.2 La variable de clustering de acuerdo al sentimiento y variables económicas. Segmentación del mercado.
-        3.2.3 Variable- proximidad
+**Fórmula:**
+```
+Densidad = N° de reseñas del trimestre / N° de negocios activos
+Tendencia = ((Densidad actual - Densidad anterior) / Densidad anterior) × 100
+```
+**Ejemplo**
 
+| Subcategoría | Densidad Q1 | Densidad Q2 | Crecimiento (%) |
+|--------------|-------------|-------------|------------------|
+| Tacos        | 20.0        | 26.0        | +30.0%           |
+| Sushi Bar    | 20.0        | 19.4        | –3.0%            |
 
-    
-4. Modelado-
+**Interpretación:** Subcategorías con tendencia positiva representan oportunidades emergentes para diversificar la inversión.
 
-    4.1 Selección final de las variables y su tratamiento diferencial. Por ejemplo, las variable de texto no estructurado requieren de un tratamiento previo que las variables numéricas continuas 
+---
 
-    4.2 Aplicar técnicas de modelado- para encontrar patrones. clasificación, regresión, clustering entre ellas y usar diferentes tipos de variables.
+## Metodología de Trabajo: SCRUM
 
-    4.3 Vectorización final de todas las variables en una sola matriz.
+Para el desarrollo del proyecto se adoptó la metodología ágil **SCRUM**, orientada a maximizar la colaboración en equipo, la adaptabilidad al cambio y la entrega incremental de valor.
 
-    4.4 Comparación modelos
+### ¿Qué es SCRUM?
 
+SCRUM es un marco de trabajo ágil que permite gestionar proyectos complejos de forma eficiente mediante iteraciones cortas llamadas **sprints**, promoviendo la mejora continua y la rápida entrega de productos funcionales.
 
-5. Evaluación-
+### Estructura del equipo SCRUM
 
-    5.1 Evaluar si el modelo cumple con los objetivos del proyecto y puede responder los KPI´s.
+- **Product Owner (PO):** Representa los intereses del cliente. Define prioridades, valida entregables y ajusta el backlog según las necesidades del negocio.
+- **Scrum Master:** Facilita el proceso SCRUM, remueve obstáculos y asegura el cumplimiento de la metodología.
+- **Equipo de desarrollo:** En este caso, compuesto por:
+  - 2 Data Engineers
+  - 2 Data Analysts
+  - 1 ML Engineer
 
-    5.2 Interpretación de los resultados.
+### Artefactos SCRUM
 
+- **Product Backlog:** Lista priorizada de tareas y funcionalidades necesarias para cumplir los objetivos del proyecto.
+- **Sprint Backlog:** Subconjunto del Product Backlog seleccionado para trabajarse durante un sprint.
+- **Incremento:** Resultado funcional del sprint que puede presentarse al PO.
 
-6. Deployment-
+### Ceremonias SCRUM utilizadas
 
-    6.1 Subida a Google Cloud.
-   
+| Ceremonia         | Frecuencia      | Descripción |
+|-------------------|-----------------|-------------|
+| Sprint Planning   | Al inicio de cada sprint | El equipo define qué tareas se van a realizar y cómo. |
+| Daily Scrum       | Diariamente     | Reunión de 15 minutos para revisar avances, obstáculos y plan diario. |
+| Sprint Review     | Fin del sprint  | Se muestra el trabajo completado al Product Owner. Se recibe feedback. |
+| Sprint Retrospective | Fin del sprint | Reflexión sobre el proceso, identificando mejoras para el próximo sprint. |
+
+### Estructura de trabajo en el proyecto
+
+- Duración del proyecto: **6 semanas**
+- Dividido en **3 sprints** de 2 semanas cada uno
+- Entregables definidos por sprint, validados con el PO
+- Gestión de tareas y seguimiento mediante tableros (Kanban en GitHub Projects o Trello)
+
+### Beneficios obtenidos
+
+- Claridad de roles y prioridades
+- Mejora continua en cada sprint
+- Capacidad de adaptación ante cambios de requerimientos
+- Trabajo colaborativo y transparente
