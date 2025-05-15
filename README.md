@@ -1,5 +1,4 @@
-![alt text](Imagenes/Logo_datawave.jpg)
-
+![alt text](Imagenes/Datawave_logo_suavizado.jpg)
 # Proyecto grupal
 ## YELP & GOOGLE MAPS - REVIEWS AND RECOMMENDATIONS
 
