@@ -88,7 +88,7 @@ En una segunda etapa, ya contemplada en la planificación futura del proyecto, s
         ↓
 [BigQuery (staging → model layer)]
         ↓
-[Vertex AI / Colab para EDA, NLP y ML]
+[Jupyten Notebook / Colab para EDA, NLP y ML]
         ↓
 [Modelo deploy: Cloud Run o Vertex AI Endpoint]
         ↓
@@ -129,16 +129,7 @@ En una segunda etapa, ya contemplada en la planificación futura del proyecto, s
 4. Transformar a capa modelada
 5. Ejecutar modelo y actualizar salida
 
-### Resumen de componentes GCP y su uso
-
-| Componente GCP     | Función en el pipeline                                      |
-|--------------------|-------------------------------------------------------------|
-| Cloud Storage (GCS)| Raw y staging layer (entrada/salida de datos)               |
-| Cloud Composer     | Orquestación ETL (Airflow)                                  |
-| Cloud Functions    | Limpieza/transformación ligera                              |
-| BigQuery           | Almacenamiento estructurado DW                              |
-| Vertex AI          | EDA, NLP, entrenamiento y deploy de ML                      |
-| Cloud Run          | Deploy de API o app frontend (Streamlit)                    |
+![alt text](<Imagenes/pipline bonito.svg>)
 
 ## Tecnologías y herramientas utilizadas
 
@@ -149,7 +140,7 @@ En una segunda etapa, ya contemplada en la planificación futura del proyecto, s
 | Cloud Functions           | Procesamiento ligero   | Funciones para limpieza y transformación sin servidor                                 |
 | Cloud Dataflow            | Procesamiento escalable| Para cargas grandes o procesamiento en streaming                                      |
 | BigQuery                  | Data Warehouse         | Consulta rápida sobre grandes volúmenes, con modelo estructurado                     |
-| Vertex AI / ML Model      | Machine Learning       | Entrenamiento, validación y despliegue de modelos                                     |
+| BERT / XGBoost            | Machine Learning       | Entrenamiento, validación y despliegue de modelos                                     |
 | Power BI                  | Visualización          | Dashboards interactivos conectados directamente a BigQuery                           |
 
 
