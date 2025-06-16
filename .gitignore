@@ -700,3 +700,7 @@ data/yelp/review.json
 data/yelp/tip.json
 data/yelp/user.parquet
 data/yelp/Yelp-20250504T225920Z-003.zip
+ETL/reviews_consolidado_pivot.csv
+ETL/reviews_consolidado_por_estado.csv
+ETL/reviews_consolidado_summary.csv
+ETL/reviews_estados_mashup.csv
