@@ -1,1 +1,0 @@
-# Script principal del pipeline

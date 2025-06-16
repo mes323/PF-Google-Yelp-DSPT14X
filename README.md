@@ -84,15 +84,15 @@ En una segunda etapa, ya contemplada en la planificación futura del proyecto, s
         ↓
 [Cloud Composer (Airflow) ejecuta limpieza]
         ↓
-[Cloud Functions o Dataflow realiza transformación]
+[Cloud Functions o Dataproc realiza transformación]
         ↓
 [BigQuery (staging → model layer)]
         ↓
-[Jupyten Notebook / Colab para EDA, NLP y ML]
+[Jupyter Notebook / Colab para EDA, NLP y ML]
         ↓
 [Modelo deploy: Cloud Run o Vertex AI Endpoint]
         ↓
-[Dashboard: Power BI]
+[Dashboard: Looker Studio]
 ```
 
 ### Etapas y servicios recomendados
@@ -104,8 +104,8 @@ En una segunda etapa, ya contemplada en la planificación futura del proyecto, s
 #### 2. Limpieza básica → Cloud Composer (Airflow)
 - Orquestación con DAGs personalizados
 
-#### 3. Transformación avanzada → Cloud Functions o Cloud Dataflow
-- Scripts ligeros (Functions) o flujos pesados (Dataflow/Apache Beam)
+#### 3. Transformación avanzada → Cloud Functions o Cloud Dataproc
+- Scripts ligeros (Functions) o flujos pesados (Dataproc/Apache Beam)
 
 #### 4. Almacenamiento → BigQuery
 - Modelo estrella o snowflake: `fact_reviews`, `dim_business`, etc.
@@ -119,7 +119,7 @@ En una segunda etapa, ya contemplada en la planificación futura del proyecto, s
 #### 7. Deploy del producto → Cloud Run o Vertex AI Endpoint
 - Streamlit App o API REST (FastAPI)
 
-#### 8. Dashboard final → Power BI
+#### 8. Dashboard final → Looker Studio
 
 ### Automatización con Airflow (Composer)
 
@@ -138,10 +138,10 @@ En una segunda etapa, ya contemplada en la planificación futura del proyecto, s
 | Google Cloud Storage      | Almacenamiento         | Repositorio de datos crudos y preprocesados                                           |
 | Cloud Composer            | Orquestación           | Orquestador de procesos ETL con Apache Airflow                                        |
 | Cloud Functions           | Procesamiento ligero   | Funciones para limpieza y transformación sin servidor                                 |
-| Cloud Dataflow            | Procesamiento escalable| Para cargas grandes o procesamiento en streaming                                      |
+| Cloud Dataporc            | Procesamiento escalable| Para cargas grandes o procesamiento en streaming                                      |
 | BigQuery                  | Data Warehouse         | Consulta rápida sobre grandes volúmenes, con modelo estructurado                     |
-| BERT / XGBoost            | Machine Learning       | Entrenamiento, validación y despliegue de modelos                                     |
-| Power BI                  | Visualización          | Dashboards interactivos conectados directamente a BigQuery                           |
+| BERT / Cosine similarity  | Machine Learning       | Entrenamiento, validación y despliegue de modelos                                     |
+| Looker Studio             | Visualización          | Dashboards interactivos conectados directamente a BigQuery                           |
 
 
 
@@ -151,59 +151,70 @@ A continuación se describen los KPIs clave definidos para evaluar tendencias, o
 
 ---
 
-### KPI 1: Índice de Potencial Demográfico por Estado
+## KPI 1 — CSAT (Customer Satisfaction Score)
 
-**Objetivo:** Priorizar geográficamente los estados con mayor atractivo para instalar un local gastronómico, considerando densidad poblacional y condiciones socioeconómicas.
-
-**Fórmula sugerida (ponderada):**
-```
-Índice = (Densidad poblacional normalizada × 0.5) +
-         (Ingreso promedio normalizado × 0.3) +
-         (Porcentaje de educación superior × 0.2)
-```
-
-**Periodicidad:** Evaluación puntual anual o semestral.
-
-**Interpretación:** Un valor más alto indica mayor potencial de éxito para nuevos negocios en ese estado.
-
----
-
-### KPI 2: Satisfacción del Cliente en Relación a Reseñas
-
-**Objetivo:** Identificar estados con alto volumen de reseñas pero bajo rating promedio, lo que puede indicar oportunidades para mejorar la oferta gastronómica.
-
-**Fórmula sugerida:**
-```
-Índice de insatisfacción = log10(N° de reseñas + 1) × (5 - Rating promedio)
-```
-**Ejemplo**
-
-| Estado     | N° Reseñas | Rating Promedio | Índice |
-|------------|------------|------------------|--------|
-| Texas      | 120,000    | 3.2              | 2.3    |
-| Florida    | 80,000     | 4.1              | 1.0    |
-
-**Interpretación:** Estados con mayor índice presentan mayor concurrencia y menor satisfacción → alto potencial de inversión.
-
----
-
-### KPI 3: Tendencia de Crecimiento en Subcategorías
-
-**Objetivo:** Detectar subcategorías gastronómicas que presentan un crecimiento en la densidad de reseñas entre trimestres consecutivos.
+**Descripción:**
+El CSAT mide el nivel de satisfacción del cliente tras una interacción (compra, visita, reseña, etc.) mediante encuestas con una escala de 1 (muy insatisfecho) a 5 (muy satisfecho).
 
 **Fórmula:**
-```
-Densidad = N° de reseñas del trimestre / N° de negocios activos
-Tendencia = ((Densidad actual - Densidad anterior) / Densidad anterior) × 100
-```
-**Ejemplo**
+CSAT (%) = (Respuestas positivas / Total de respuestas) * 100
+Se consideran positivas las respuestas de 4 o 5 estrellas.
 
-| Subcategoría | Densidad Q1 | Densidad Q2 | Crecimiento (%) |
-|--------------|-------------|-------------|------------------|
-| Tacos        | 20.0        | 26.0        | +30.0%           |
-| Sushi Bar    | 20.0        | 19.4        | –3.0%            |
+**Objetivo:**
+Evaluar la satisfacción percibida y detectar oportunidades de mejora en la experiencia del cliente.
 
-**Interpretación:** Subcategorías con tendencia positiva representan oportunidades emergentes para diversificar la inversión.
+**Meta:**
+Mantener el CSAT en crecimiento constante año a año.
+
+**Ejemplo:**
+90 respuestas positivas de 150 totales → CSAT = 60%
+
+---
+
+## KPI 2 — Crecimiento >10% en Review Counts (Primer Año)
+
+**Descripción:**
+Mide el incremento en la cantidad de reseñas publicadas (Yelp y Google) durante el primer año del proyecto, comparado con el volumen inicial (baseline).
+
+**Fórmula:**
+Crecimiento (%) = ((Reviews año_actual - Reviews año_anterior) / Reviews año_anterior) * 100
+
+**Objetivo:**
+Evaluar el crecimiento de la actividad y el engagement de los usuarios, así como la visibilidad generada por el proyecto.
+
+**Meta:**
+Superar un crecimiento del 10% en el número de reseñas al cabo del primer año.
+
+**Ejemplo:**
+50.000 reseñas iniciales → 56.000 al final del primer año → Crecimiento = 12%
+
+---
+
+## KPI 3 — NPS (Net Promoter Score)
+
+**Descripción:**
+El NPS mide la lealtad del cliente y su disposición a recomendar el negocio, basado en encuestas con una escala de 0 (nada probable) a 10 (muy probable).
+
+**Fórmula:**
+Los encuestados se clasifican como:
+
+**Promotores: 9–10**
+
+Pasivos: 7–8 (no se consideran en el cálculo)
+
+Detractores: 0–6
+
+NPS = % Promotores - % Detractores
+Rango posible: de -100 a +100.
+
+**Objetivo:**
+Evaluar la lealtad y satisfacción profunda del cliente, así como la probabilidad de recomendaciones boca a boca.
+
+**Meta:**
+Incrementar el NPS año tras año como indicador de fidelización y reputación.
+
+**Ejemplo:**
+200 encuestados → 60% Promotores, 20% Detractores → NPS = 40
 
 ---
 
