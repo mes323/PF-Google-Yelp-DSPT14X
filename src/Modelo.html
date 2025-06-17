@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Recomendador de Restaurantes</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+    input, button {
+      font-size: 1rem;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Recomendador de Restaurantes</h1>
+  <p>Escribí el nombre de un restaurante:</p>
+  <input type="text" id="placeInput" placeholder="Ej: Chipotle">
+  <button onclick="buscarRecomendaciones()">Buscar</button>
+
+  <h2>Resultados</h2>
+  <ul id="resultados"></ul>
+
+  <script>
+    async function buscarRecomendaciones() {
+      const place = document.getElementById("placeInput").value;
+      const resultados = document.getElementById("resultados");
+      resultados.innerHTML = "<li>Buscando...</li>";
+
+      try {
+        const response = await fetch("https://restaurant-recommender-808937578837.us-central1.run.app", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ place })
+        });
+
+        if (!response.ok) {
+          const error = await response.json();
+          resultados.innerHTML = `<li>Error: ${error.error}</li>`;
+          return;
+        }
+
+        const data = await response.json();
+        resultados.innerHTML = "";
+        if (!data.recommendations || data.recommendations.length === 0) {
+          resultados.innerHTML = "<li>No se encontraron recomendaciones.</li>";
+        } else {
+          data.recommendations.forEach(item => {
+            const li = document.createElement("li");
+            li.innerHTML = `<a href="${item.url}" target="_blank">${item.name}</a>`;
+            resultados.appendChild(li);
+          });
+        }
+      } catch (err) {
+        resultados.innerHTML = `<li>Error en la solicitud: ${err.message}</li>`;
+      }
+    }
+  </script>
+</body>
+</html>
+
