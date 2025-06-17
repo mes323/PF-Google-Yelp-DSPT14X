@@ -1,0 +1,18 @@
+# Airflow y operadores
+apache-airflow[gcp]==2.9.1
+
+# Google Cloud SDKs
+google-cloud-storage==2.16.0
+google-cloud-bigquery==3.21.0
+
+# HTTP requests (para llamar Cloud Run y Telegram)
+requests==2.31.0
+
+# Para generación de documentos Word
+python-docx==1.1.0
+
+# Manejo de archivos y rutas
+pathlib==1.0.1
+
+# Para DAGs en Composer o Airflow local
+apache-airflow-providers-google==10.15.0
