@@ -12,7 +12,8 @@
 - [Tecnologías y herramientas utilizadas](#tecnologías-y-herramientas-utilizadas)
 - [Key Performance Indicators (KPI)](#key-performance-indicators-(kpi))
 - [Metodología de Trabajo: SCRUM](#metodología-de-trabajo:-scrum)
-
+- 📊[VER DASHBOARD](https://lookerstudio.google.com/reporting/2976b04b-0a80-499d-be27-8ea8a8820c20)
+  
 ## Descripción del Proyecto – *Localización Óptima y Análisis de Éxito Gastronómico*
 
 **Empresa: DataWave. Data Solutions**
